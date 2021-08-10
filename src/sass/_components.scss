@@ -13,8 +13,8 @@
 }
 
 // **************************************************************************//
-// TriviaCard
-.trivia-card {
+// QuizCard
+.quiz-card {
   @include animate(moveInBottom);
 
   &__category {

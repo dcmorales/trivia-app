@@ -1,6 +1,6 @@
-import TriviaCard from './TriviaCard';
+import QuizCard from './QuizCard';
 
-const TriviaList = ({
+const QuizScreen = ({
   currentQuestion,
   triviaQuestions,
   handleAnswerClick,
@@ -12,7 +12,7 @@ const TriviaList = ({
       .filter((question, i) => i + 1 === currentQuestion)
       .map((question) => {
         return (
-          <TriviaCard
+          <QuizCard
             key={question}
             question={question}
             handleAnswerClick={handleAnswerClick}
@@ -23,4 +23,4 @@ const TriviaList = ({
   );
 };
 
-export default TriviaList;
+export default QuizScreen;
