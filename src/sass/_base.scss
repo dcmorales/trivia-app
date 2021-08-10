@@ -1,0 +1,52 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+  background-color: $color-grey;
+  font-size: 35px;
+  font-family: sans-serif;
+}
+
+.screen-container {
+  height: 100vh;
+  width: 100vw;
+  padding: 90px;
+}
+
+.screen-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 30px;
+  opacity: 0.6;
+  transition: transform 0.3s ease-in 0.1s;
+
+  &:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  &:active {
+    transform: translateY(20px);
+  }
+}
