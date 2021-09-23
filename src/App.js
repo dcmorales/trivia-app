@@ -16,6 +16,7 @@ function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const nextQuestion = currentQuestion + 1;
   const [matchedAnswer, setMatchedAnswer] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const getTriviaQuestions = async () => {
     try {
@@ -28,7 +29,7 @@ function App() {
       });
       setTriviaQuestions(res.data.results);
     } catch (err) {
-      console.log(err, 'err');
+      setErrorMessage('Sorry, there was an error. Please try again.');
     }
   };
 
@@ -95,6 +96,7 @@ function App() {
       <LoadingScreen
         triviaQuestions={triviaQuestions}
         currentQuestion={currentQuestion}
+        errorMessage={errorMessage}
       />
     </AnswerFeedbackContext.Provider>
   );

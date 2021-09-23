@@ -1,7 +1,6 @@
-const LoadingScreen = ({ triviaQuestions, currentQuestion }) => {
-  return (
-    !triviaQuestions.length &&
-    currentQuestion === 1 && (
+const LoadingScreen = ({ triviaQuestions, currentQuestion, errorMessage }) => {
+  return !errorMessage ? (
+    !triviaQuestions.length && currentQuestion === 1 && (
       <div className="screen-container">
         <div className="loading-screen">
           <div className="loading-screen__spinner" />
@@ -9,6 +8,8 @@ const LoadingScreen = ({ triviaQuestions, currentQuestion }) => {
         </div>
       </div>
     )
+  ) : (
+    <div>{errorMessage}</div>
   );
 };
 
