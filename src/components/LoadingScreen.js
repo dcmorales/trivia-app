@@ -15,10 +15,8 @@ const LoadingScreen = ({
     )
   ) : (
     <div className="screen-container">
-      <div className="error-screen">
-        <button onClick={() => resetTrivia()}>Back</button>
-        {errorMessage}
-      </div>
+      <button onClick={() => resetTrivia()}>Back</button>
+      <div className="loading-screen">{errorMessage}</div>
     </div>
   );
 };
