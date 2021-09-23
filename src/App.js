@@ -18,14 +18,18 @@ function App() {
   const [matchedAnswer, setMatchedAnswer] = useState(null);
 
   const getTriviaQuestions = async () => {
-    const res = await opentdb.get('/api.php', {
-      params: {
-        amount: 10,
-        difficulty: 'hard',
-        type: 'boolean',
-      },
-    });
-    setTriviaQuestions(res.data.results);
+    try {
+      const res = await opentdb.get('/api.php', {
+        params: {
+          amount: 10,
+          difficulty: 'hard',
+          type: 'boolean',
+        },
+      });
+      setTriviaQuestions(res.data.results);
+    } catch (err) {
+      console.log(err, 'err');
+    }
   };
 
   const handleBeginClick = () => {
