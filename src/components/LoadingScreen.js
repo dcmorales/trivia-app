@@ -1,4 +1,9 @@
-const LoadingScreen = ({ triviaQuestions, currentQuestion, errorMessage }) => {
+const LoadingScreen = ({
+  triviaQuestions,
+  currentQuestion,
+  errorMessage,
+  resetTrivia,
+}) => {
   return !errorMessage ? (
     !triviaQuestions.length && currentQuestion === 1 && (
       <div className="screen-container">
@@ -9,7 +14,10 @@ const LoadingScreen = ({ triviaQuestions, currentQuestion, errorMessage }) => {
       </div>
     )
   ) : (
-    <div>{errorMessage}</div>
+    <div>
+      <button onClick={() => resetTrivia()}>Back</button>
+      {errorMessage}
+    </div>
   );
 };
 

@@ -97,6 +97,7 @@ function App() {
         triviaQuestions={triviaQuestions}
         currentQuestion={currentQuestion}
         errorMessage={errorMessage}
+        resetTrivia={resetTrivia}
       />
     </AnswerFeedbackContext.Provider>
   );
