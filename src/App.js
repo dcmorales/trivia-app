@@ -69,6 +69,7 @@ function App() {
     setAnsweredQuestions([]);
     setCurrentQuestion(0);
     setScore(0);
+    setErrorMessage('');
   };
 
   return (
