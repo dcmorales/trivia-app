@@ -1,7 +1,8 @@
 // **************************************************************************
 // HomeScreen
-.home {
+.home-screen {
   @include animate(moveInTop);
+
   font-size: 28px;
 
   &__header {
