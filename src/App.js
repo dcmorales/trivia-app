@@ -29,7 +29,7 @@ function App() {
       });
       setTriviaQuestions(res.data.results);
     } catch (err) {
-      setErrorMessage('Sorry, there was an error. Please try again.');
+      setErrorMessage('Sorry, there was an error. Please try again later.');
     }
   };
 
