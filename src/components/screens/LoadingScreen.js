@@ -2,12 +2,12 @@ import { Button } from '../common/Button';
 
 const LoadingScreen = ({
   triviaQuestions,
-  currentQuestion,
+  currentQuestionIdx,
   errorMessage,
   resetTrivia,
 }) => {
   return !errorMessage ? (
-    !triviaQuestions.length && currentQuestion === 1 && (
+    !triviaQuestions.length && currentQuestionIdx !== -1 && (
       <div className="screen-container">
         <div className="loading-screen">
           <div className="loading-screen__spinner" />

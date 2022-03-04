@@ -1,7 +1,7 @@
 import { Button } from './common/Button';
 import Question from './Question';
 
-const QuizCard = ({ question, handleAnswerClick, currentQuestion }) => {
+const QuizCard = ({ question, handleAnswerClick, currentQuestionIdx }) => {
   return (
     <div className="screen-container">
       <div className="quiz-card screen-content">
@@ -23,7 +23,7 @@ const QuizCard = ({ question, handleAnswerClick, currentQuestion }) => {
           />
         </div>
 
-        <div>{currentQuestion} of 10</div>
+        <div>{currentQuestionIdx + 1} of 10</div>
       </div>
     </div>
   );

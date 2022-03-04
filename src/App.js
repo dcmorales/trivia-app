@@ -13,8 +13,8 @@ function App() {
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const nextQuestion = currentQuestion + 1;
+  const [currentQuestionIdx, setCurrentQuestionIdx] = useState(-1);
+  const nextQuestionIdx = currentQuestionIdx + 1;
   const [matchedAnswer, setMatchedAnswer] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -34,7 +34,7 @@ function App() {
   };
 
   const handleBeginClick = () => {
-    setCurrentQuestion(nextQuestion);
+    setCurrentQuestionIdx(nextQuestionIdx);
     getTriviaQuestions();
   };
 
@@ -47,7 +47,7 @@ function App() {
     }
 
     setTimeout(() => {
-      setCurrentQuestion(nextQuestion);
+      setCurrentQuestionIdx(nextQuestionIdx);
       setMatchedAnswer(null);
     }, 500);
 
@@ -58,7 +58,7 @@ function App() {
       setMatchedAnswer(false);
     }
 
-    if (nextQuestion > triviaQuestions.length) {
+    if (nextQuestionIdx + 1 > triviaQuestions.length) {
       setShowScore(true);
     }
   };
@@ -67,7 +67,7 @@ function App() {
     setTriviaQuestions([]);
     setShowScore(false);
     setAnsweredQuestions([]);
-    setCurrentQuestion(0);
+    setCurrentQuestionIdx(-1);
     setScore(0);
     setErrorMessage('');
   };
@@ -75,19 +75,19 @@ function App() {
   return (
     <AnswerFeedbackContext.Provider value={{ matchedAnswer, setMatchedAnswer }}>
       <HomeScreen
-        currentQuestion={currentQuestion}
+        currentQuestionIdx={currentQuestionIdx}
         handleBeginClick={handleBeginClick}
       />
 
       <QuizScreen
-        currentQuestion={currentQuestion}
+        currentQuestionIdx={currentQuestionIdx}
         triviaQuestions={triviaQuestions}
         handleAnswerClick={handleAnswerClick}
       />
 
       <ResultScreen
         triviaQuestions={triviaQuestions}
-        currentQuestion={currentQuestion}
+        currentQuestionIdx={currentQuestionIdx}
         showScore={showScore}
         answeredQuestions={answeredQuestions}
         score={score}
@@ -96,7 +96,7 @@ function App() {
 
       <LoadingScreen
         triviaQuestions={triviaQuestions}
-        currentQuestion={currentQuestion}
+        currentQuestionIdx={currentQuestionIdx}
         errorMessage={errorMessage}
         resetTrivia={resetTrivia}
       />

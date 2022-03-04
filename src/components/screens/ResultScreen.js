@@ -3,7 +3,7 @@ import AnswerResult from '../AnswerResult';
 
 const ResultScreen = ({
   showScore,
-  currentQuestion,
+  currentQuestionIdx,
   triviaQuestions,
   score,
   answeredQuestions,
@@ -11,7 +11,7 @@ const ResultScreen = ({
 }) => {
   return (
     showScore &&
-    currentQuestion > triviaQuestions.length && (
+    currentQuestionIdx + 1 > triviaQuestions.length && (
       <div className="result-screen">
         <div className="result-screen__score">
           You scored {score} / {triviaQuestions.length}

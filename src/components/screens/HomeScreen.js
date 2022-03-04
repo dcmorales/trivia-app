@@ -1,8 +1,8 @@
 import { Button } from '../common/Button';
 
-const HomeScreen = ({ currentQuestion, handleBeginClick }) => {
+const HomeScreen = ({ currentQuestionIdx, handleBeginClick }) => {
   return (
-    currentQuestion < 1 && (
+    currentQuestionIdx === -1 && (
       <div className="screen-container">
         <div className="home screen-content">
           <h1 className="home__header">Welcome to the Trivia Challenge</h1>

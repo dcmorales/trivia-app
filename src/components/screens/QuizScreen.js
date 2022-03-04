@@ -1,22 +1,22 @@
 import QuizCard from '../QuizCard';
 
 const QuizScreen = ({
-  currentQuestion,
+  currentQuestionIdx,
   triviaQuestions,
   handleAnswerClick,
 }) => {
   return (
-    currentQuestion > 0 &&
-    currentQuestion <= triviaQuestions.length &&
+    currentQuestionIdx !== -1 &&
+    currentQuestionIdx <= triviaQuestions.length &&
     triviaQuestions
-      .filter((question, i) => i + 1 === currentQuestion)
+      .filter((question, i) => i === currentQuestionIdx)
       .map((question) => {
         return (
           <QuizCard
             key={question}
             question={question}
             handleAnswerClick={handleAnswerClick}
-            currentQuestion={currentQuestion}
+            currentQuestionIdx={currentQuestionIdx}
           />
         );
       })
