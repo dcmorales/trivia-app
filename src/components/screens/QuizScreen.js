@@ -7,7 +7,7 @@ const QuizScreen = ({
 }) => {
   return (
     currentQuestionIdx !== -1 &&
-    currentQuestionIdx <= triviaQuestions.length &&
+    currentQuestionIdx < triviaQuestions.length &&
     triviaQuestions
       .filter((_, i) => i === currentQuestionIdx)
       .map((question) => {
