@@ -14,7 +14,6 @@ function App() {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(-1);
-  const nextQuestionIdx = currentQuestionIdx + 1;
   const [matchedAnswer, setMatchedAnswer] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -34,7 +33,7 @@ function App() {
   };
 
   const handleBeginClick = () => {
-    setCurrentQuestionIdx(nextQuestionIdx);
+    setCurrentQuestionIdx((prevQuestionIdx) => prevQuestionIdx + 1);
     getTriviaQuestions();
   };
 
@@ -47,7 +46,7 @@ function App() {
     }
 
     setTimeout(() => {
-      setCurrentQuestionIdx(nextQuestionIdx);
+      setCurrentQuestionIdx((prevQuestionIdx) => prevQuestionIdx + 1);
       setMatchedAnswer(null);
     }, 500);
 
@@ -58,7 +57,7 @@ function App() {
       setMatchedAnswer(false);
     }
 
-    if (nextQuestionIdx + 1 > triviaQuestions.length) {
+    if (currentQuestionIdx + 1 === triviaQuestions.length) {
       setShowScore(true);
     }
   };
