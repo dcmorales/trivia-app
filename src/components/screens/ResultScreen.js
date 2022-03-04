@@ -19,12 +19,7 @@ const ResultScreen = ({
 
         <div>
           {answeredQuestions.map((question, i) => {
-            return (
-              <AnswerResult
-                key={`${question.question}${question.userAnswer}`}
-                question={question}
-              />
-            );
+            return <AnswerResult key={question.question} question={question} />;
           })}
         </div>
 
