@@ -28,32 +28,6 @@
   &__score {
     font-size: 40px;
   }
-
-  &__answer-result {
-    display: flex;
-    align-items: center;
-    padding: 40px 0;
-  }
-
-  &__icon {
-    font-size: 80px;
-    padding-right: 30px;
-  }
-
-  &__correct {
-    padding: 0 20px;
-    border-right: 3px solid $color-green;
-  }
-
-  &__wrong {
-    padding: 0 20px;
-    border-right: 3px solid $color-red;
-  }
-
-  &__question-container {
-    display: flex;
-    flex-direction: column;
-  }
 }
 
 // **************************************************************************
