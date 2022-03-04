@@ -3,10 +3,6 @@
 .quiz-card {
   @include animate(moveInBottom);
 
-  &__category {
-    font-weight: 700;
-  }
-
   &__question {
     border: 1px solid $color-black;
     border-radius: 7px;

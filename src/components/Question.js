@@ -2,17 +2,18 @@ import { useContext } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import AnswerFeedbackContext from '../contexts/AnswerFeedbackContext';
 
-const Question = ({ question, classBlock }) => {
+const Question = ({ question, isCard }) => {
   const { matchedAnswer } = useContext(AnswerFeedbackContext);
 
   return (
     <>
-      <div className={`${classBlock}__category`}>{question.category}</div>
+      <h3>{question.category}</h3>
       <div
-        className={`${classBlock}__question ${
-          matchedAnswer
+        className={`${isCard ? 'quiz-card__question' : ''} ${
+          question.userAnswer === question.correct_answer
             ? 'correct'
-            : matchedAnswer === false
+            : question.userAnswer &&
+              question.userAnswer !== question.correct_answer
             ? 'not-correct'
             : null
         }`}

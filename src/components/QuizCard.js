@@ -10,7 +10,7 @@ const QuizCard = ({
   return (
     <div className="screen-container">
       <div className="quiz-card screen-content">
-        <Question question={question} classBlock={'quiz-card'} />
+        <Question question={question} isCard />
 
         <div>
           <Button

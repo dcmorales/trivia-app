@@ -47,14 +47,14 @@ function App() {
 
     setTimeout(() => {
       setCurrentQuestionIdx((prevQuestionIdx) => prevQuestionIdx + 1);
-      setMatchedAnswer(null);
+      // setMatchedAnswer(null);
     }, 500);
 
     if (userAnswer === question.correct_answer) {
       setScore((prevScore) => prevScore + 1);
-      setMatchedAnswer(true);
+      // setMatchedAnswer(true);
     } else {
-      setMatchedAnswer(false);
+      // setMatchedAnswer(false);
     }
 
     if (currentQuestionIdx + 1 === triviaQuestions.length) {

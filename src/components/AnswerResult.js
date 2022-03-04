@@ -12,7 +12,7 @@ const AnswerResult = ({ question }) => {
       </div>
 
       <div className="result-screen__question-container">
-        <Question question={question} classBlock="result-screen" />
+        <Question question={question} />
       </div>
     </div>
   );
