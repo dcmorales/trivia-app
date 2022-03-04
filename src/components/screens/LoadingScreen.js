@@ -8,17 +8,17 @@ const LoadingScreen = ({
 }) => {
   return !errorMessage ? (
     !triviaQuestions.length && currentQuestionIdx !== -1 && (
-      <div className="loading-screen">
+      <div className="screen-content loading-screen">
         <div className="loading-screen__spinner" />
         <div>...loading</div>
       </div>
     )
   ) : (
-    <>
-      <Button title="Back to Home" buttonText="back" onClick={resetTrivia} />
+    <div className="screen-content error-screen">
+      <p className="error-screen__message">{errorMessage}</p>
 
-      <div className="loading-screen">{errorMessage}</div>
-    </>
+      <Button title="Back to Home" buttonText="back" onClick={resetTrivia} />
+    </div>
   );
 };
 

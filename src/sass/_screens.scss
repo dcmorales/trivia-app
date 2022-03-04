@@ -33,12 +33,7 @@
 // **************************************************************************
 // LoadingScreen
 .loading-screen {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
 
   &__spinner {
     border: 16px solid #f3f3f3;
@@ -47,5 +42,15 @@
     width: 150px;
     height: 150px;
     animation: spin 2s linear infinite;
+  }
+}
+
+// **************************************************************************
+// ErrorScreen
+.error-screen {
+  justify-content: center;
+
+  &__message {
+    padding-bottom: 20px;
   }
 }
