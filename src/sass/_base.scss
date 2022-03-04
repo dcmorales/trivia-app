@@ -20,6 +20,10 @@ body {
 .screen-container {
   height: 100vh;
   padding: 70px;
+
+  @include respond(phone) {
+    padding: 30px;
+  }
 }
 
 .screen-content {

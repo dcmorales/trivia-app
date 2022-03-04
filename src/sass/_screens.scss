@@ -3,10 +3,19 @@
 .home-screen {
   @include animate(moveInTop);
 
+  text-align: center;
   font-size: 28px;
+
+  @include respond(phone) {
+    font-size: 20px;
+  }
 
   &__header {
     font-size: 40px;
+
+    @include respond(phone) {
+      font-size: 30px;
+    }
   }
 
   &__directions {
@@ -22,12 +31,24 @@
 
   font-size: 28px;
 
+  @include respond(phone) {
+    font-size: 18px;
+  }
+
   &__score {
     font-size: 40px;
+
+    @include respond(phone) {
+      font-size: 30px;
+    }
   }
 
   &__button {
     margin-bottom: 20px;
+
+    @include respond(phone) {
+      font-size: 20px;
+    }
   }
 }
 
@@ -50,6 +71,11 @@
 // ErrorScreen
 .error-screen {
   justify-content: center;
+
+  @include respond(phone) {
+    text-align: center;
+    font-size: 25px;
+  }
 
   &__message {
     padding-bottom: 20px;
