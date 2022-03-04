@@ -31,7 +31,7 @@ const ResultScreen = ({
         <Button
           title="Play Trivia Challenge again?"
           buttonText="play again?"
-          handleClick={resetTrivia}
+          onClick={resetTrivia}
         />
       </div>
     )

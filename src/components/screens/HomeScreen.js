@@ -16,7 +16,7 @@ const HomeScreen = ({ currentQuestion, handleBeginClick }) => {
           <Button
             title="Begin Trivia Challenge"
             buttonText="begin"
-            handleClick={handleBeginClick}
+            onClick={handleBeginClick}
           />
         </div>
       </div>

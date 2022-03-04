@@ -17,11 +17,7 @@ const LoadingScreen = ({
     )
   ) : (
     <div className="screen-container">
-      <Button
-        title="Back to Home"
-        buttonText="back"
-        handleClick={resetTrivia}
-      />
+      <Button title="Back to Home" buttonText="back" onClick={resetTrivia} />
 
       <div className="loading-screen">{errorMessage}</div>
     </div>
