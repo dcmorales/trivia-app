@@ -15,6 +15,7 @@ const QuizScreen = ({
           <QuizCard
             key={question}
             question={question}
+            triviaLength={triviaQuestions.length}
             handleAnswerClick={handleAnswerClick}
             currentQuestionIdx={currentQuestionIdx}
           />

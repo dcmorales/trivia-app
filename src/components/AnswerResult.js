@@ -10,6 +10,7 @@ const AnswerResult = ({ question }) => {
           <div className="result-screen__not-correct">&minus;</div>
         )}
       </div>
+
       <div className="result-screen__question-container">
         <Question question={question} classBlock="result-screen" />
       </div>
