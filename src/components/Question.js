@@ -1,10 +1,6 @@
-import { useContext } from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import AnswerFeedbackContext from '../contexts/AnswerFeedbackContext';
 
 const Question = ({ question, isCard }) => {
-  const { matchedAnswer } = useContext(AnswerFeedbackContext);
-
   return (
     <>
       <h3>{question.category}</h3>
