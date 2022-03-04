@@ -66,7 +66,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="screen-container">
       <HomeScreen
         currentQuestionIdx={currentQuestionIdx}
         handleBeginClick={handleBeginClick}
@@ -93,7 +93,7 @@ function App() {
         errorMessage={errorMessage}
         resetTrivia={resetTrivia}
       />
-    </>
+    </div>
   );
 }
 

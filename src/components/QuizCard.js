@@ -15,29 +15,27 @@ const QuizCard = ({
   }`;
 
   return (
-    <div className="screen-container">
-      <div className="quiz-card screen-content">
-        <Question question={question} className={className} />
+    <div className="screen-content quiz-card">
+      <Question question={question} className={className} />
 
-        <div>
-          <Button
-            className="quiz-card__answer-button"
-            title="True"
-            buttonText="true"
-            onClick={() => handleAnswerClick('True', question)}
-          />
+      <div>
+        <Button
+          className="quiz-card__answer-button"
+          title="True"
+          buttonText="true"
+          onClick={() => handleAnswerClick('True', question)}
+        />
 
-          <Button
-            className="quiz-card__answer-button"
-            title="False"
-            buttonText="false"
-            onClick={() => handleAnswerClick('False', question)}
-          />
-        </div>
+        <Button
+          className="quiz-card__answer-button"
+          title="False"
+          buttonText="false"
+          onClick={() => handleAnswerClick('False', question)}
+        />
+      </div>
 
-        <div>
-          {currentQuestionIdx + 1} of {triviaLength}
-        </div>
+      <div>
+        {currentQuestionIdx + 1} of {triviaLength}
       </div>
     </div>
   );

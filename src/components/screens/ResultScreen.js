@@ -12,7 +12,7 @@ const ResultScreen = ({
   return (
     showScore &&
     currentQuestionIdx + 1 > triviaQuestions.length && (
-      <div className="result-screen">
+      <div className="screen-content result-screen">
         <div className="result-screen__score">
           You scored {score} / {triviaQuestions.length}
         </div>
@@ -23,11 +23,14 @@ const ResultScreen = ({
           })}
         </div>
 
-        <Button
-          title="Play Trivia Challenge again?"
-          buttonText="play again?"
-          onClick={resetTrivia}
-        />
+        <div>
+          <Button
+            className="result-screen__button"
+            title="Play Trivia Challenge again?"
+            buttonText="play again?"
+            onClick={resetTrivia}
+          />
+        </div>
       </div>
     )
   );

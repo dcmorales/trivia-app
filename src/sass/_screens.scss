@@ -19,14 +19,14 @@
 .result-screen {
   @include animate(moveInRight);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 70px;
   font-size: 28px;
 
   &__score {
     font-size: 40px;
+  }
+
+  &__button {
+    margin-bottom: 20px;
   }
 }
 
