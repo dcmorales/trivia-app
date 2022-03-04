@@ -56,13 +56,17 @@ function App() {
     }
   };
 
+  const resetError = () => {
+    setCurrentQuestionIdx(-1);
+    setErrorMessage('');
+  };
+
   const resetTrivia = () => {
     setTriviaQuestions([]);
     setShowScore(false);
     setAnsweredQuestions([]);
     setCurrentQuestionIdx(-1);
     setScore(0);
-    setErrorMessage('');
   };
 
   return (
@@ -91,7 +95,7 @@ function App() {
         triviaQuestions={triviaQuestions}
         currentQuestionIdx={currentQuestionIdx}
         errorMessage={errorMessage}
-        resetTrivia={resetTrivia}
+        resetError={resetError}
       />
     </div>
   );
