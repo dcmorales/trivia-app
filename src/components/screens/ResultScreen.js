@@ -1,4 +1,4 @@
-import AnswerResult from './AnswerResult';
+import AnswerResult from '../AnswerResult';
 
 const ResultScreen = ({
   showScore,

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import opentdb from './apis/opentdb';
-import HomeScreen from './components/HomeScreen';
-import QuizScreen from './components/QuizScreen';
-import ResultScreen from './components/ResultScreen';
-import LoadingScreen from './components/LoadingScreen';
+import HomeScreen from './components/screens/HomeScreen';
+import QuizScreen from './components/screens/QuizScreen';
+import ResultScreen from './components/screens/ResultScreen';
+import LoadingScreen from './components/screens/LoadingScreen';
 import AnswerFeedbackContext from './contexts/AnswerFeedbackContext';
 
 import './sass/main.scss';
