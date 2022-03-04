@@ -14,17 +14,15 @@
     padding: 90px;
   }
 
+  &__correct {
+    background-color: $color-green;
+  }
+
+  &__wrong {
+    background-color: $color-red;
+  }
+
   &__answer-button {
     margin: 5px 20px;
   }
-}
-
-// **************************************************************************
-// answer feedback
-.correct {
-  background-color: $color-green;
-}
-
-.not-correct {
-  background-color: $color-red;
 }

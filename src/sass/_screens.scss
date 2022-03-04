@@ -36,7 +36,7 @@
   }
 
   &__icon {
-    font-size: 70px;
+    font-size: 80px;
     padding-right: 30px;
   }
 
@@ -45,7 +45,7 @@
     border-right: 3px solid $color-green;
   }
 
-  &__not-correct {
+  &__wrong {
     padding: 0 20px;
     border-right: 3px solid $color-red;
   }
