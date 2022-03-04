@@ -1,0 +1,83 @@
+// **************************************************************************
+// HomeScreen
+.home-screen {
+  @include animate(moveInTop);
+
+  text-align: center;
+  font-size: 28px;
+
+  @include respond(phone) {
+    font-size: 20px;
+  }
+
+  &__header {
+    font-size: 40px;
+
+    @include respond(phone) {
+      font-size: 30px;
+    }
+  }
+
+  &__directions {
+    padding: 20px;
+    font-weight: 300;
+  }
+}
+
+// **************************************************************************
+// ResultScreen
+.result-screen {
+  @include animate(moveInRight);
+
+  font-size: 28px;
+
+  @include respond(phone) {
+    font-size: 18px;
+  }
+
+  &__score {
+    font-size: 40px;
+
+    @include respond(phone) {
+      font-size: 30px;
+    }
+  }
+
+  &__button {
+    margin-bottom: 20px;
+
+    @include respond(phone) {
+      font-size: 20px;
+    }
+  }
+}
+
+// **************************************************************************
+// LoadingScreen
+.loading-screen {
+  justify-content: center;
+
+  &__spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid $color-blue;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: spin 2s linear infinite;
+  }
+}
+
+// **************************************************************************
+// ErrorScreen
+.error-screen {
+  justify-content: center;
+
+  @include respond(phone) {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  &__message {
+    padding-bottom: 20px;
+  }
+}

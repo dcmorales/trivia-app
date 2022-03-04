@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import opentdb from './apis/opentdb';
-import HomeScreen from './components/HomeScreen';
-import QuizScreen from './components/QuizScreen';
-import ResultScreen from './components/ResultScreen';
-import LoadingScreen from './components/LoadingScreen';
-import AnswerFeedbackContext from './contexts/AnswerFeedbackContext';
+import HomeScreen from './components/screens/HomeScreen';
+import QuizScreen from './components/screens/QuizScreen';
+import ResultScreen from './components/screens/ResultScreen';
+import LoadingScreen from './components/screens/LoadingScreen';
+import ErrorScreen from './components/screens/ErrorScreen';
 
 import './sass/main.scss';
 
@@ -13,10 +13,8 @@ function App() {
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const nextQuestion = currentQuestion + 1;
-  const [matchedAnswer, setMatchedAnswer] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [currentQuestionIdx, setCurrentQuestionIdx] = useState(-1);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const getTriviaQuestions = async () => {
     try {
@@ -28,13 +26,13 @@ function App() {
         },
       });
       setTriviaQuestions(res.data.results);
-    } catch (err) {
-      setErrorMessage('Sorry, there was an error. Please try again.');
+    } catch {
+      setErrorMessage('Sorry, there was an error. Please try again later.');
     }
   };
 
   const handleBeginClick = () => {
-    setCurrentQuestion(nextQuestion);
+    setCurrentQuestionIdx((prevQuestionIdx) => prevQuestionIdx + 1);
     getTriviaQuestions();
   };
 
@@ -43,64 +41,65 @@ function App() {
     if (answeredQuestions.includes(question)) {
       return;
     } else {
-      setAnsweredQuestions(answeredQuestions.concat([question]));
+      setAnsweredQuestions((prevQuestions) => [...prevQuestions, question]);
     }
 
     setTimeout(() => {
-      setCurrentQuestion(nextQuestion);
-      setMatchedAnswer(null);
+      setCurrentQuestionIdx((prevQuestionIdx) => prevQuestionIdx + 1);
     }, 500);
 
     if (userAnswer === question.correct_answer) {
-      setScore(score + 1);
-      setMatchedAnswer(true);
-    } else {
-      setMatchedAnswer(false);
+      setScore((prevScore) => prevScore + 1);
     }
 
-    if (nextQuestion > triviaQuestions.length) {
+    if (currentQuestionIdx + 1 === triviaQuestions.length) {
       setShowScore(true);
     }
+  };
+
+  const resetError = () => {
+    setCurrentQuestionIdx(-1);
+    setErrorMessage(null);
   };
 
   const resetTrivia = () => {
     setTriviaQuestions([]);
     setShowScore(false);
     setAnsweredQuestions([]);
-    setCurrentQuestion(0);
+    setCurrentQuestionIdx(-1);
     setScore(0);
-    setErrorMessage('');
   };
 
   return (
-    <AnswerFeedbackContext.Provider value={{ matchedAnswer, setMatchedAnswer }}>
+    <div className="screen-container">
       <HomeScreen
-        currentQuestion={currentQuestion}
+        currentQuestionIdx={currentQuestionIdx}
         handleBeginClick={handleBeginClick}
       />
 
       <QuizScreen
-        currentQuestion={currentQuestion}
+        currentQuestionIdx={currentQuestionIdx}
         triviaQuestions={triviaQuestions}
         handleAnswerClick={handleAnswerClick}
       />
 
       <ResultScreen
         triviaQuestions={triviaQuestions}
-        currentQuestion={currentQuestion}
+        currentQuestionIdx={currentQuestionIdx}
         showScore={showScore}
         answeredQuestions={answeredQuestions}
         score={score}
         resetTrivia={resetTrivia}
       />
 
-      <LoadingScreen
-        triviaQuestions={triviaQuestions}
-        currentQuestion={currentQuestion}
-        errorMessage={errorMessage}
-        resetTrivia={resetTrivia}
-      />
-    </AnswerFeedbackContext.Provider>
+      {!errorMessage &&
+        !triviaQuestions.length &&
+        currentQuestionIdx !== -1 && <LoadingScreen />}
+
+      {errorMessage && (
+        <ErrorScreen errorMessage={errorMessage} resetError={resetError} />
+      )}
+    </div>
   );
 }
 

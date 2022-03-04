@@ -1,24 +1,32 @@
-// **************************************************************************//
-// HomeScreen
-.home {
-  @include animate(moveInTop);
+// **************************************************************************
+// Common - UI Button
+button {
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 30px;
+  opacity: 0.6;
+  transition: transform 0.3s ease-in 0.1s;
 
-  &__header {
-    font-size: 40px;
+  &:hover {
+    transform: scale(1.05);
+    opacity: 1;
   }
 
-  &__directions {
-    padding: 20px;
+  &:active {
+    transform: translateY(10px);
   }
 }
 
-// **************************************************************************//
+// **************************************************************************
 // QuizCard
 .quiz-card {
   @include animate(moveInBottom);
 
-  &__category {
-    font-weight: bold;
+  @include respond(phone) {
+    font-size: 20px;
+    text-align: center;
   }
 
   &__question {
@@ -30,37 +38,49 @@
     align-items: center;
     text-align: center;
     padding: 90px;
+
+    @include respond(phone) {
+      height: 400px;
+      width: 350px;
+    }
+  }
+
+  &__correct {
+    background-color: $color-green;
+  }
+
+  &__wrong {
+    background-color: $color-red;
   }
 
   &__answer-button {
     margin: 5px 20px;
+
+    @include respond(phone) {
+      padding: 10px;
+      font-size: 20px;
+    }
   }
 }
 
-// **************************************************************************//
-// ResultScreen
-.result-screen {
-  @include animate(moveInRight);
-
+// **************************************************************************
+// AnswerResult
+.answer-result {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 70px;
-  font-size: 28px;
+  padding: 40px 0;
 
-  &__score {
-    font-size: 40px;
-  }
-
-  &__answer-result {
-    display: flex;
-    align-items: center;
-    padding: 40px 0;
+  @include respond(phone) {
+    padding: 20px 0;
   }
 
   &__icon {
-    font-size: 70px;
+    font-size: 80px;
     padding-right: 30px;
+
+    @include respond(phone) {
+      font-size: 50px;
+    }
   }
 
   &__correct {
@@ -68,7 +88,7 @@
     border-right: 3px solid $color-green;
   }
 
-  &__not-correct {
+  &__wrong {
     padding: 0 20px;
     border-right: 3px solid $color-red;
   }
@@ -77,38 +97,4 @@
     display: flex;
     flex-direction: column;
   }
-
-  &__category {
-    font-weight: bold;
-  }
-}
-
-// **************************************************************************//
-// LoadingScreen
-.loading-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-
-  &__spinner {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid $color-blue;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    animation: spin 2s linear infinite;
-  }
-}
-
-// **************************************************************************//
-// answer feedback
-.correct {
-  background-color: $color-green;
-}
-
-.not-correct {
-  background-color: $color-red;
 }

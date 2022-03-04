@@ -1,22 +1,10 @@
-import { useContext } from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import AnswerFeedbackContext from '../contexts/AnswerFeedbackContext';
 
-const Question = ({ question, classBlock }) => {
-  const { matchedAnswer } = useContext(AnswerFeedbackContext);
-
+const Question = ({ question, className }) => {
   return (
     <>
-      <div className={`${classBlock}__category`}>{question.category}</div>
-      <div
-        className={`${classBlock}__question ${
-          matchedAnswer
-            ? 'correct'
-            : matchedAnswer === false
-            ? 'not-correct'
-            : null
-        }`}
-      >
+      <h3>{question.category}</h3>
+      <div className={`${className ? className : ''}`}>
         {ReactHtmlParser(question.question)}
       </div>
     </>
