@@ -51,7 +51,7 @@ function App() {
     }, 500);
 
     if (userAnswer === question.correct_answer) {
-      setScore(score + 1);
+      setScore((prevScore) => prevScore + 1);
       setMatchedAnswer(true);
     } else {
       setMatchedAnswer(false);
