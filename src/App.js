@@ -4,7 +4,6 @@ import HomeScreen from './components/screens/HomeScreen';
 import QuizScreen from './components/screens/QuizScreen';
 import ResultScreen from './components/screens/ResultScreen';
 import LoadingScreen from './components/screens/LoadingScreen';
-import AnswerFeedbackContext from './contexts/AnswerFeedbackContext';
 
 import './sass/main.scss';
 
@@ -14,7 +13,6 @@ function App() {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(-1);
-  const [matchedAnswer, setMatchedAnswer] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
   const getTriviaQuestions = async () => {
@@ -47,14 +45,10 @@ function App() {
 
     setTimeout(() => {
       setCurrentQuestionIdx((prevQuestionIdx) => prevQuestionIdx + 1);
-      // setMatchedAnswer(null);
     }, 500);
 
     if (userAnswer === question.correct_answer) {
       setScore((prevScore) => prevScore + 1);
-      // setMatchedAnswer(true);
-    } else {
-      // setMatchedAnswer(false);
     }
 
     if (currentQuestionIdx + 1 === triviaQuestions.length) {
@@ -72,7 +66,7 @@ function App() {
   };
 
   return (
-    <AnswerFeedbackContext.Provider value={{ matchedAnswer, setMatchedAnswer }}>
+    <>
       <HomeScreen
         currentQuestionIdx={currentQuestionIdx}
         handleBeginClick={handleBeginClick}
@@ -99,7 +93,7 @@ function App() {
         errorMessage={errorMessage}
         resetTrivia={resetTrivia}
       />
-    </AnswerFeedbackContext.Provider>
+    </>
   );
 }
 
