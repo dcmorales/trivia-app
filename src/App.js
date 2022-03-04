@@ -42,7 +42,7 @@ function App() {
     if (answeredQuestions.includes(question)) {
       return;
     } else {
-      setAnsweredQuestions(answeredQuestions.concat([question]));
+      setAnsweredQuestions((prevQuestions) => [...prevQuestions, question]);
     }
 
     setTimeout(() => {
