@@ -1,3 +1,4 @@
+import { Button } from '../common/Button';
 import AnswerResult from '../AnswerResult';
 
 const ResultScreen = ({
@@ -27,9 +28,11 @@ const ResultScreen = ({
           })}
         </div>
 
-        <button title="Play again?" onClick={() => resetTrivia()}>
-          play again?
-        </button>
+        <Button
+          title="Play Trivia Challenge again?"
+          buttonText="play again?"
+          handleClick={resetTrivia}
+        />
       </div>
     )
   );

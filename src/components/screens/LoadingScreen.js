@@ -1,3 +1,5 @@
+import { Button } from '../common/Button';
+
 const LoadingScreen = ({
   triviaQuestions,
   currentQuestion,
@@ -15,9 +17,12 @@ const LoadingScreen = ({
     )
   ) : (
     <div className="screen-container">
-      <button title="Back to Home" onClick={() => resetTrivia()}>
-        Back
-      </button>
+      <Button
+        title="Back to Home"
+        buttonText="back"
+        handleClick={resetTrivia}
+      />
+
       <div className="loading-screen">{errorMessage}</div>
     </div>
   );

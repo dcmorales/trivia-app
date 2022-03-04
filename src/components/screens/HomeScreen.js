@@ -1,3 +1,5 @@
+import { Button } from '../common/Button';
+
 const HomeScreen = ({ currentQuestion, handleBeginClick }) => {
   return (
     currentQuestion < 1 && (
@@ -11,12 +13,11 @@ const HomeScreen = ({ currentQuestion, handleBeginClick }) => {
 
           <p>Can you score 100%?</p>
 
-          <button
+          <Button
             title="Begin Trivia Challenge"
-            onClick={() => handleBeginClick()}
-          >
-            begin
-          </button>
+            buttonText="begin"
+            handleClick={handleBeginClick}
+          />
         </div>
       </div>
     )
