@@ -27,7 +27,9 @@ const ResultScreen = ({
           })}
         </div>
 
-        <button onClick={() => resetTrivia()}>play again?</button>
+        <button title="Play again?" onClick={() => resetTrivia()}>
+          play again?
+        </button>
       </div>
     )
   );

@@ -9,12 +9,14 @@ const QuizCard = ({ question, handleAnswerClick, currentQuestion }) => {
         <div>
           <button
             className="quiz-card__answer-button"
+            title="True"
             onClick={() => handleAnswerClick('True', question)}
           >
             True
           </button>
           <button
             className="quiz-card__answer-button"
+            title="False"
             onClick={() => handleAnswerClick('False', question)}
           >
             False
