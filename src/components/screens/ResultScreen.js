@@ -18,7 +18,7 @@ const ResultScreen = ({
         </div>
 
         <div>
-          {answeredQuestions.map((question, i) => {
+          {answeredQuestions.map((question) => {
             return <AnswerResult key={question.question} question={question} />;
           })}
         </div>
