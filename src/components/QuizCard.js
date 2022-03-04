@@ -1,3 +1,4 @@
+import { Button } from './common/Button';
 import Question from './Question';
 
 const QuizCard = ({ question, handleAnswerClick, currentQuestion }) => {
@@ -7,20 +8,19 @@ const QuizCard = ({ question, handleAnswerClick, currentQuestion }) => {
         <Question question={question} classBlock={'quiz-card'} />
 
         <div>
-          <button
+          <Button
             className="quiz-card__answer-button"
             title="True"
-            onClick={() => handleAnswerClick('True', question)}
-          >
-            True
-          </button>
-          <button
+            buttonText="true"
+            handleClick={() => handleAnswerClick('True', question)}
+          />
+
+          <Button
             className="quiz-card__answer-button"
             title="False"
-            onClick={() => handleAnswerClick('False', question)}
-          >
-            False
-          </button>
+            buttonText="false"
+            handleClick={() => handleAnswerClick('False', question)}
+          />
         </div>
 
         <div>{currentQuestion} of 10</div>
