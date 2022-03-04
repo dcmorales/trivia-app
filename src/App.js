@@ -27,7 +27,7 @@ function App() {
         },
       });
       setTriviaQuestions(res.data.results);
-    } catch (err) {
+    } catch {
       setErrorMessage('Sorry, there was an error. Please try again later.');
     }
   };
