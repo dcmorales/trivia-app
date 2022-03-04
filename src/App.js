@@ -4,6 +4,7 @@ import HomeScreen from './components/screens/HomeScreen';
 import QuizScreen from './components/screens/QuizScreen';
 import ResultScreen from './components/screens/ResultScreen';
 import LoadingScreen from './components/screens/LoadingScreen';
+import ErrorScreen from './components/screens/ErrorScreen';
 
 import './sass/main.scss';
 
@@ -91,12 +92,12 @@ function App() {
         resetTrivia={resetTrivia}
       />
 
-      <LoadingScreen
-        triviaQuestions={triviaQuestions}
-        currentQuestionIdx={currentQuestionIdx}
-        errorMessage={errorMessage}
-        resetError={resetError}
-      />
+      {!errorMessage ? (
+        !triviaQuestions.length &&
+        currentQuestionIdx !== -1 && <LoadingScreen />
+      ) : (
+        <ErrorScreen errorMessage={errorMessage} resetError={resetError} />
+      )}
     </div>
   );
 }
