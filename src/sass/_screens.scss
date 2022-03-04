@@ -1,0 +1,79 @@
+// **************************************************************************
+// HomeScreen
+.home {
+  @include animate(moveInTop);
+
+  &__header {
+    font-size: 40px;
+  }
+
+  &__directions {
+    padding: 20px;
+  }
+}
+
+// **************************************************************************
+// ResultScreen
+.result-screen {
+  @include animate(moveInRight);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px;
+  font-size: 28px;
+
+  &__score {
+    font-size: 40px;
+  }
+
+  &__answer-result {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+  }
+
+  &__icon {
+    font-size: 70px;
+    padding-right: 30px;
+  }
+
+  &__correct {
+    padding: 0 20px;
+    border-right: 3px solid $color-green;
+  }
+
+  &__not-correct {
+    padding: 0 20px;
+    border-right: 3px solid $color-red;
+  }
+
+  &__question-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__category {
+    font-weight: bold;
+  }
+}
+
+// **************************************************************************
+// LoadingScreen
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  &__spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid $color-blue;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: spin 2s linear infinite;
+  }
+}
