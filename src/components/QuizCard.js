@@ -7,10 +7,17 @@ const QuizCard = ({
   currentQuestionIdx,
   triviaLength,
 }) => {
+  const isCorrect = question.userAnswer === question.correct_answer;
+  const isWrong =
+    question.userAnswer && question.userAnswer !== question.correct_answer;
+  const className = `quiz-card__question ${
+    isCorrect ? 'quiz-card__correct' : isWrong ? 'quiz-card__wrong' : ''
+  }`;
+
   return (
     <div className="screen-container">
       <div className="quiz-card screen-content">
-        <Question question={question} isCard />
+        <Question question={question} className={className} />
 
         <div>
           <Button
