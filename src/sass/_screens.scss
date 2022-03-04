@@ -2,6 +2,7 @@
 // HomeScreen
 .home {
   @include animate(moveInTop);
+  font-size: 28px;
 
   &__header {
     font-size: 40px;
@@ -9,6 +10,7 @@
 
   &__directions {
     padding: 20px;
+    font-weight: 300;
   }
 }
 
@@ -54,7 +56,7 @@
   }
 
   &__category {
-    font-weight: bold;
+    font-weight: 700;
   }
 }
 

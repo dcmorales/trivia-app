@@ -5,11 +5,11 @@ const HomeScreen = ({ currentQuestion, handleBeginClick }) => {
         <div className="home screen-content">
           <h1 className="home__header">Welcome to the Trivia Challenge</h1>
 
-          <div className="home__directions">
+          <h2 className="home__directions">
             You will be presented with 10 True or False questions.
-          </div>
+          </h2>
 
-          <div>Can you score 100%?</div>
+          <p>Can you score 100%?</p>
 
           <button
             title="Begin Trivia Challenge"
