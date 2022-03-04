@@ -14,7 +14,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(-1);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const getTriviaQuestions = async () => {
     try {
@@ -59,7 +59,7 @@ function App() {
 
   const resetError = () => {
     setCurrentQuestionIdx(-1);
-    setErrorMessage('');
+    setErrorMessage(null);
   };
 
   const resetTrivia = () => {
@@ -92,10 +92,11 @@ function App() {
         resetTrivia={resetTrivia}
       />
 
-      {!errorMessage ? (
+      {!errorMessage &&
         !triviaQuestions.length &&
-        currentQuestionIdx !== -1 && <LoadingScreen />
-      ) : (
+        currentQuestionIdx !== -1 && <LoadingScreen />}
+
+      {errorMessage && (
         <ErrorScreen errorMessage={errorMessage} resetError={resetError} />
       )}
     </div>
